@@ -13,7 +13,7 @@ export default () => {
           className="item"
           key={i}
           onClick={() => {
-            history.push('/list');
+            history.push('/detail');
           }}
         >
           <div className="item-img">
