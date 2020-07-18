@@ -19,4 +19,11 @@ export default {
       },
     ],
   }),
+
+  '/api/detail': mockjs.mock({
+    img: '@image(500x500)',
+    price: '@integer(10, 100)',
+    title: '@ctitle(20,40)',
+    desc: '@ctitle(50,100)',
+  }),
 };

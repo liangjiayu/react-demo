@@ -40,7 +40,7 @@ function ListItems() {
                     <img src={cell.img} alt="" />
                   </div>
                   <div className="cell-title">{cell.title}</div>
-                  <div className="price">{cell.price}</div>
+                  <div className="price">{cell.price.toFixed(2)}</div>
                 </div>
               );
             })}

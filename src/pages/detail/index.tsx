@@ -1,32 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.less';
-import { history } from 'umi';
+import { history, request } from 'umi';
+import NavberBox from '../../components/NavberBox';
 
 // css name => detail-page-root
 export default () => {
+  const [detail, setDetail] = useState(null as any);
+
+  const getDetailData = () => {
+    request('/api/detail', { params: { id: history.location.query.id } }).then(
+      res => {
+        setDetail(res);
+      },
+    );
+  };
+
+  useEffect(() => {
+    getDetailData();
+  }, []);
+
   return (
     <div className="detail-page-root">
-      <div className="detail-navbar">
-        <i
-          className="arrow-icon"
-          onClick={() => {
-            history.goBack();
-          }}
-        ></i>
-        <div className="title">产品详情</div>
-      </div>
-      <div className="detail-img">
-        <img src="https://iph.href.lu/500x500" alt="" />
-      </div>
-      <div className="detail-info">
-        <div className="price">49.00</div>
-        <div className="title">
-          弗拉就发垃圾啊了房间啊垃圾分类艾灸疗法弗拉就发垃圾啊了房间啊垃圾分类艾灸疗法弗拉就发垃
+      <NavberBox name="产品详情"></NavberBox>
+      {detail && (
+        <div>
+          <div className="detail-img">
+            <img src={detail.img} alt="" />
+          </div>
+          <div className="detail-info">
+            <div className="price">{detail.price.toFixed(2)}</div>
+            <div className="title">{detail.title}</div>
+            <div className="sub-title">{detail.desc}</div>
+          </div>
         </div>
-        <div className="sub-title">
-          发了放假啦就樊辣椒了房间啊了解放拉萨机发法律纠纷啦
-        </div>
-      </div>
+      )}
+
       <div className="detail-footer">
         <div className="btn orange">加入购物车</div>
         <div className="btn red">立即购买</div>
