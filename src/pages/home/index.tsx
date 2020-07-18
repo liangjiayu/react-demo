@@ -1,57 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.less';
-import { history } from 'umi';
+import { history, request } from 'umi';
 
-// page name =>  home-page
+// css module name =>  home-page
+
+function ListItems() {
+  let [list, setList] = useState([]);
+
+  let getHomeList = () => {
+    request('/api/home').then(res => {
+      setList(res.list);
+    });
+  };
+
+  useEffect(() => {
+    getHomeList();
+  }, []);
+
+  let result = list.map((item: any) => {
+    return (
+      <div
+        key={item.id}
+        className="item"
+        onClick={() => {
+          history.push({ pathname: '/detail', query: { id: item.id } });
+        }}
+      >
+        <div className="item-img">
+          <img src={item.img} alt="" />
+        </div>
+        <div className="item-info">
+          <div className="item-title">{item.title}</div>
+          <div className="item-subtitle">{item.desc}</div>
+          <div className="item-more">
+            {item.slide.map((cell: any) => {
+              return (
+                <div className="cell" key={cell.id}>
+                  <div className="cell-img">
+                    <img src={cell.img} alt="" />
+                  </div>
+                  <div className="cell-title">{cell.title}</div>
+                  <div className="price">{cell.price}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  });
+
+  return <div className="list">{result}</div>;
+}
 
 export default () => {
-  function ListItems() {
-    let result = [];
-    for (let i = 0; i < 10; i++) {
-      result.push(
-        <div
-          className="item"
-          key={i}
-          onClick={() => {
-            history.push('/detail');
-          }}
-        >
-          <div className="item-img">
-            <img src="https://iph.href.lu/500x500" alt="" />
-          </div>
-          <div className="item-info">
-            <div className="item-title">麦当劳麦当劳</div>
-            <div className="item-subtitle">麦当劳麦当劳</div>
-            <div className="item-more">
-              <div className="cell">
-                <div className="cell-img">
-                  <img src="https://iph.href.lu/500x500" alt="" />
-                </div>
-                <div className="cell-title">麦当劳123</div>
-                <div className="price">￥12</div>
-              </div>
-              <div className="cell">
-                <div className="cell-img">
-                  <img src="https://iph.href.lu/500x500" alt="" />
-                </div>
-                <div className="cell-title">麦当劳123</div>
-                <div className="price">￥12</div>
-              </div>
-              <div className="cell">
-                <div className="cell-img">
-                  <img src="https://iph.href.lu/500x500" alt="" />
-                </div>
-                <div className="cell-title">麦当劳123</div>
-                <div className="price">￥12</div>
-              </div>
-            </div>
-          </div>
-        </div>,
-      );
-    }
-    return <div className="list">{result}</div>;
-  }
-
   return (
     <div className="home-page">
       <ListItems></ListItems>

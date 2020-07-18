@@ -10,5 +10,8 @@ export default defineConfig({
     { path: '/form', component: '@/pages/form/index' },
     { path: '/result', component: '@/pages/result/index' },
   ],
+  define: {
+    'process.env.API_URL': 'baidu.com',
+  },
   // request: false,
 });
