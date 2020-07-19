@@ -81,7 +81,7 @@
 
 ### React  reducer
 
-```react
+```javascript
 const initialState = {count: 0};
 
 function reducer(state, action) {
