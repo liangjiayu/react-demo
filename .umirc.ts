@@ -13,5 +13,6 @@ export default defineConfig({
   define: {
     'process.env.API_URL': 'baidu.com',
   },
+  // dynamicImport:{}
   // request: false,
 });
