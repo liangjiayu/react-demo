@@ -1,0 +1,85 @@
+.ko-dialog {
+  position: fixed;
+  z-index: 2000;
+  top: 50%;
+  left: 16px;
+  right: 16px;
+  transform: translate(0, -50%);
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 90%;
+  max-width: 320px;
+  margin: auto;
+  padding-top: 30px;
+  background-color: #fff;
+}
+
+.ko-mark {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.ko-dialog__hd {
+  padding: 0 24px 16px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.ko-dialog__bd {
+  padding: 0 24px;
+  margin-bottom: 30px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #666;
+  overflow: auto;
+}
+
+.ko-dialog__ft {
+  position: relative;
+  line-height: 56px;
+  min-height: 56px;
+  font-size: 16px;
+  display: flex;
+  border-top: 1px solid #f1f1f1;
+}
+
+.ko-dialog__btn {
+  position: relative;
+  display: block;
+  flex: 1;
+  color: #576b95;
+  font-weight: bold;
+  text-decoration: none;
+
+  &:first-child::after {
+    display: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #f1f1f1;
+  }
+
+  &.default {
+    color: #333;
+  }
+
+  &.primary {
+    color: #576b95;
+  }
+}

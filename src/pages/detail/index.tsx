@@ -37,7 +37,14 @@ export default () => {
 
       <div className="detail-footer">
         <div className="btn orange">加入购物车</div>
-        <div className="btn red">立即购买</div>
+        <div
+          className="btn red"
+          onClick={() => {
+            history.push('/form');
+          }}
+        >
+          立即购买
+        </div>
       </div>
     </div>
   );
