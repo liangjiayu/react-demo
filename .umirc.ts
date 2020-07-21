@@ -12,14 +12,12 @@ export default defineConfig({
     { path: '/form', component: '@/pages/form/index' },
     { path: '/result', component: '@/pages/result/index' },
   ],
+  dynamicImport: {},
   define: {
-    G_API_URL: EnvFlag
-      ? ''
-      : 'https://www.fastmock.site/mock/7423c30c24358a359ce21770176219ca/ReactDemo',
+    G_API_URL: '',
   },
   // base: EnvFlag ? '/' : '/react-demo/dist/',
   history: { type: 'hash' },
   publicPath: './',
-  // dynamicImport:{}
   // request: false,
 });

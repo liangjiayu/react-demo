@@ -18,8 +18,9 @@
   "homepage": "https://github.com/liangjiayu/react-demo#readme",
   "private": true,
   "scripts": {
-    "start": "umi dev",
-    "build": "umi build",
+    "start": "cross-env umi dev",
+    "build:prod": "cross-env UMI_ENV=prod umi build",
+    "build:staging": "cross-env UMI_ENV=staging umi build",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
@@ -49,6 +50,7 @@
     "yorkie": "^2.0.0"
   },
   "devDependencies": {
-    "@types/mockjs": "^1.0.2"
+    "@types/mockjs": "^1.0.2",
+    "cross-env": "^7.0.2"
   }
 }
