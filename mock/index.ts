@@ -1,5 +1,7 @@
 import mockjs from 'mockjs';
 
+// https://www.fastmock.site/#/projects 线上mock地址
+
 export default {
   '/api/home': mockjs.mock({
     'list|10': [

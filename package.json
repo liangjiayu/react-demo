@@ -48,5 +48,7 @@
     "umi": "^3.2.9",
     "yorkie": "^2.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/mockjs": "^1.0.2"
+  }
 }

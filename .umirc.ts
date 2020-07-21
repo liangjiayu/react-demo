@@ -1,5 +1,7 @@
 import { defineConfig } from 'umi';
 
+const EnvFlag = process.env.NODE_ENV === 'development';
+
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
@@ -11,7 +13,9 @@ export default defineConfig({
     { path: '/result', component: '@/pages/result/index' },
   ],
   define: {
-    'process.env.API_URL': 'baidu.com',
+    G_API_URL: EnvFlag
+      ? ''
+      : 'https://www.fastmock.site/mock/7423c30c24358a359ce21770176219ca/ReactDemo',
   },
   // dynamicImport:{}
   // request: false,
