@@ -49,7 +49,7 @@
     (n.o = function(e, t) {
       return Object.prototype.hasOwnProperty.call(e, t);
     }),
-    (n.p = '/'),
+    (n.p = './'),
     n((n.s = 0));
 })({
   '++J5': function(e, t, n) {},
@@ -6914,7 +6914,7 @@
       });
     n('k1fw');
     var r = n('YS25'),
-      o = { basename: '/' };
+      o = { basename: '/dist' };
     window.routerBase && (o.basename = window.routerBase);
     var i = Object({ NODE_ENV: 'production' }).__IS_SERVER
         ? null
