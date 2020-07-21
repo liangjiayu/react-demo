@@ -17,7 +17,8 @@ export default defineConfig({
       ? ''
       : 'https://www.fastmock.site/mock/7423c30c24358a359ce21770176219ca/ReactDemo',
   },
-  base: EnvFlag ? '/' : '/react-demo/dist/',
+  // base: EnvFlag ? '/' : '/react-demo/dist/',
+  history: { type: 'hash' },
   publicPath: './',
   // dynamicImport:{}
   // request: false,

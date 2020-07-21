@@ -6914,14 +6914,14 @@
       });
     n('k1fw');
     var r = n('YS25'),
-      o = { basename: '/react-demo/dist/' };
+      o = { basename: '/' };
     window.routerBase && (o.basename = window.routerBase);
     var i = Object({ NODE_ENV: 'production' }).__IS_SERVER
         ? null
-        : Object(r['a'])(o),
+        : Object(r['b'])(o),
       a = function() {
         var e = arguments.length > 0 && void 0 !== arguments[0] && arguments[0];
-        return e || (i = Object(r['a'])(o)), i;
+        return e || (i = Object(r['b'])(o)), i;
       };
   },
   'G+Rx': function(e, t, n) {
