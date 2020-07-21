@@ -6914,7 +6914,7 @@
       });
     n('k1fw');
     var r = n('YS25'),
-      o = { basename: '/dist' };
+      o = { basename: '/react-demo/dist/' };
     window.routerBase && (o.basename = window.routerBase);
     var i = Object({ NODE_ENV: 'production' }).__IS_SERVER
         ? null
